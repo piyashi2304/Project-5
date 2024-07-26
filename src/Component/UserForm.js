@@ -9,15 +9,15 @@ function UserForm() {
     const [submittedName, setSubmittedName] = useState('');
     const [submittedEmail, setSubmittedEmail] = useState('');
 
-     // Handle form submission
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Update the submitted name and email states
+   
     setSubmittedName(name);
     setSubmittedEmail(email);
   };
 
-    // Effect to log when the form is submitted
+    
   useEffect(() => {
     if (submittedName || submittedEmail) {
       console.log(`Form submitted with Name: ${submittedName} and Email: ${submittedEmail}`);
@@ -27,16 +27,31 @@ function UserForm() {
 
  return (
    <>
+   <h3>Create Account</h3><br />
+   <div className='parent'>
+    <div className='pic1'>
+   <i class="fa-brands fa-facebook "></i>
+   <h6>Sign up with facebook</h6>
+   </div>
+   <div className='pic1'>
+   <i class="fa-brands fa-google"></i>
+   <h6>Sign up with Google</h6>
+   </div>
+   </div>
+   <h4>--OR--</h4>
    <div className='container'>
+   
+    
    <div className='formpage'> 
+  
    <form onSubmit={handleSubmit}>
-    <label> Name: <input  type = "text" placeholder='Enter your name' value={name} onChange={(e) => setName(e.target.value)} required/></label> <br />
-    <label> Email: <input  type = "email" placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} required/></label>
-    <button type="submit">Submit</button>
+     <input  type = "text" placeholder='Enter your name' value={name} onChange={(e) => setName(e.target.value)} required/> <br />
+    <input  type = "email" placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} required/> <br /><br />
+    <button type="submit">Create Account</button>
    </form>
    
 
-   {/* Display the submitted name and email */}
+   
    {submittedName && (
         <div className='submittedInfo'>
           <h2>Submitted Information</h2>
@@ -46,6 +61,7 @@ function UserForm() {
       )}
       </div>
       </div>
+    
     
    
    </>
